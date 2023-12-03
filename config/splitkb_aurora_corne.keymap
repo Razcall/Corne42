@@ -9,7 +9,7 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
-#include <dt-bindings/zmk/mouse.h>
+//#include <dt-bindings/zmk/mouse.h>
 
 
 / {
@@ -53,8 +53,8 @@
 //layer navigation
 #define ADJUST 5
 //layer adjust function
-#define MOUSE 6
-//mouse function
+//#define MOUSE 6
+//mouse function not yet supported
 
 
         keymap {
@@ -70,7 +70,7 @@
 
             bindings =  <
             &mt LEFT_GUI TAB    &kp Q   &kp W       &kp E       &kp R   &kp T               &kp Y           &kp U       &kp I       &kp O   &kp P     &kp BSPC
-            &kp LCTRL           &kp A   &kp S       &kp D       &kp F   &kp G               &kp H           &kp J       &kp K       &kp L   &kp SEMI  &lt MOUSE SINGLE_QUOTE
+            &kp LCTRL           &kp A   &kp S       &kp D       &kp F   &kp G               &kp H           &kp J       &kp K       &kp L   &kp SEMI  &mt RCTRL SINGLE_QUOTE
             &td1                &kp Z   &kp X       &kp C       &kp V   &kp B               &kp N           &kp M       &kp COMMA   &kp DOT &kp FSLH  &mt RSHFT ESC
                                                     &kp LALT    &td0    &mt LSHFT SPC       &lt NAV ENTER   &mo RAISE   &mt RALT DEL
                         >;
@@ -156,20 +156,5 @@
                         >;
         };
 
-        _MOUSE {
-            label = "Jerry";
-            // -----------------------------------------------------------------------------------------
-            // |     |     |     |     |     |     |        |     |     |     |scrup|  up |scrdw|
-            // |     |     |     |     |     |     |        |     |     |     |left |down |right|
-            // |     |     |     |     |     |     |        |     |     |     |scrlf|     |scrrg|
-            //                   |     |     |     |        |lfclk|mdclk|rgclk|
-
-            bindings =  <
-            &trans  &trans  &trans  &trans  &trans  &trans      &trans              &trans                &mkp MOUSE_SCROLL_UP     &mkp MOUSE_MOVE_UP     &mkp MOUSE_SCROLL_DOWN  &trans
-            &trans  &trans  &trans  &trans  &trans  &trans      &trans              &trans                &mkp MOUSE_BTN_LEFT      &mkp MOUSE_MOVE_DOWN   &mkp MOUSE_MOVE_RIGHT   &trans
-            &trans  &trans  &trans  &trans  &trans  &trans      &trans              &trans                &mkp MOUSE_SCROLL_LEFT   &trans                 &mkp MOUSE_SCROLL_RIGHT &trans
-                                    &trans  &trans  &trans      &mkp MOUSE_BTN_LEFT &mkp MOUSE_BTN_MIDDLE &mkp MOUSE_BTN_RIGHT
-                        >;  
-        };
     };
 };
