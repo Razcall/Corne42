@@ -9,6 +9,7 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
+#include <dt-bindings/zmk/mouse.h>
 
 
 / {
@@ -41,11 +42,19 @@
  * to do : alias layer 
  */
 #define BASE 0   
+//layer alpha
 #define LOWER 1
+//layer top row low kb sym 
 #define RAISE 2
+//layer top row high kb sym
 #define FUN 3
+//layer Function
 #define NAV 4
+//layer navigation
 #define ADJUST 5
+//layer adjust function
+#define MOUSE 6
+//mouse function
 
 
         keymap {
@@ -54,17 +63,17 @@
         _BASE {
             label = "Home";
             // -----------------------------------------------------------------------------------------
-            // |FN/TAB|  Q  |  W  |  E  |  R  |   T    |   |  Y  |  U   |    I    |  O  |  P  | BKSP   |
-            // | CTRL |  A  |  S  |  D  |  F  |   G    |   |  H  |  J   |    K    |  L  |  ;  |  '     |
-            // |SFT/CP|  Z  |  X  |  C  |  V  |   B    |   |  N  |  M   |    ,    |  .  |  /  |ESC/RSFT|
-            //              | LALT| LWR/FUN | SFT-SPC|   | ENT |  RSE | DEL/ALT |
+            // | GUI/TAB|  Q  |  W  |  E  |  R  |   T    |   |  Y  |  U   |    I    |  O  |  P  | BKSP   |
+            // |  CTRL  |  A  |  S  |  D  |  F  |   G    |   |  H  |  J   |    K    |  L  |  ;  | ù/RCTRL|
+            // | SFT/CP |  Z  |  X  |  C  |  V  |   B    |   |  N  |  M   |    ,    |  .  |  /  |ESC/RSFT|
+            //                | LALT| LWR/FUN | SFT-SPC|   | ENT |  RSE | DEL/ALT |
 
-            bindings = <
-        &mt LEFT_GUI TAB    &kp Q   &kp W       &kp E       &kp R   &kp T               &kp Y           &kp U       &kp I       &kp O   &kp P     &kp BSPC
-        &kp LCTRL           &kp A   &kp S       &kp D       &kp F   &kp G               &kp H           &kp J       &kp K       &kp L   &kp SEMI  &mt RCTRL SINGLE_QUOTE
-        &td1                &kp Z   &kp X       &kp C       &kp V   &kp B               &kp N           &kp M       &kp COMMA   &kp DOT &kp FSLH  &mt RSHFT ESC
-                                                &kp LALT    &td0    &mt LSHFT SPC       &lt NAV ENTER   &mo RAISE   &mt RALT DEL
-            >;
+            bindings =  <
+            &mt LEFT_GUI TAB    &kp Q   &kp W       &kp E       &kp R   &kp T               &kp Y           &kp U       &kp I       &kp O   &kp P     &kp BSPC
+            &kp LCTRL           &kp A   &kp S       &kp D       &kp F   &kp G               &kp H           &kp J       &kp K       &kp L   &kp SEMI  &lt MOUSE SINGLE_QUOTE
+            &td1                &kp Z   &kp X       &kp C       &kp V   &kp B               &kp N           &kp M       &kp COMMA   &kp DOT &kp FSLH  &mt RSHFT ESC
+                                                    &kp LALT    &td0    &mt LSHFT SPC       &lt NAV ENTER   &mo RAISE   &mt RALT DEL
+                        >;
         };
 
         _LOWER {
@@ -75,12 +84,12 @@
             // |      | BT1 | BT2 | BT3 | BT4 |USBTt|   |     |     |     |     |     |      |
             //                    | GUI |     |     |   |     |     | ALT |
 
-            bindings = <
-        &trans &kp N1          &kp N2          &kp N3          &kp N4          &kp N5          &kp N6  &kp N7     &kp N8       &kp N9              &kp N0              &trans
-        &trans &bt BT_SEL 4    &kp LEFT        &kp DOWN        &kp UP          &kp RIGHT       &none   &kp MINUS  &kp EQUAL    &kp LEFT_BRACKET    &kp RIGHT_BRACKET   &kp BACKSLASH
-        &trans &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3    &out OUT_TOG    &trans  &trans     &trans       &trans              &trans              &trans
-                                               &trans          &trans          &trans          &trans  &mo ADJUST &trans
-            >;
+            bindings =  <
+            &trans &kp N1          &kp N2          &kp N3          &kp N4          &kp N5          &kp N6  &kp N7     &kp N8       &kp N9              &kp N0              &trans
+            &trans &bt BT_SEL 4    &kp LEFT        &kp DOWN        &kp UP          &kp RIGHT       &none   &kp MINUS  &kp EQUAL    &kp LEFT_BRACKET    &kp RIGHT_BRACKET   &kp BACKSLASH
+            &trans &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3    &out OUT_TOG    &trans  &trans     &trans       &trans              &trans              &trans
+                                                   &trans          &trans          &trans          &trans  &mo ADJUST &trans
+                        >;
         };
 
         _RAISE {
@@ -91,54 +100,76 @@
             // |      |      |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
             //                     |     |     |     |   |     |     |     |
 
-            bindings = <
-        &trans &kp EXCL        &kp AT  &kp HASH      &kp DLLR      &kp PRCNT            &kp CARET   &kp AMPS        &kp ASTRK   &kp LPAR        &kp RPAR        &kp DEL
-        &trans &none           &none   &none         &none         &none                &none       &kp UNDERSCORE  &kp PLUS    &kp LEFT_BRACE  &kp RIGHT_BRACE &kp PIPE
-        &trans &kp NON_US_BSLH &trans  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_MUTE           &none       &none           &none       &none           &none           &none
-                                       &trans        &mo ADJUST    &trans               &trans      &trans          &trans
-            >;
+            bindings =  <
+            &trans &kp EXCL        &kp AT  &kp HASH      &kp DLLR      &kp PRCNT            &kp CARET   &kp AMPS        &kp ASTRK   &kp LPAR        &kp RPAR        &kp DEL
+            &trans &none           &none   &none         &none         &none                &none       &kp UNDERSCORE  &kp PLUS    &kp LEFT_BRACE  &kp RIGHT_BRACE &kp PIPE
+            &trans &kp NON_US_BSLH &trans  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_MUTE           &none       &none           &none       &none           &none           &none
+                                           &trans        &mo ADJUST    &trans               &trans      &trans          &trans
+                        >;
         };
 
         _FUN {
             label = "Funkia'";
             // -----------------------------------------------------------------------------------------
-            // |      | F1  | F2  | F3  | F4  |     |   |  -  |  7  |  8  |  9  |     |     |
+            // |      | F1  | F2  | F3  | F4  |     |   |  -  |  7  |  8  |  9  |     |BCSPC|
             // |      | F5  | F6  | F7  | F8  |BTCLR|   |     |  4  |  5  |  6  |  -. |  /  |
             // |      | F9  | F10 | F11 | F12 |     |   |     |  1  |  2  |  3  |  +  |  *  |
             //                    |     |     | SPC |   |     |     |     |
 
             bindings = <
-        &trans   &kp F1   &kp F2  &kp F3  &kp F4   &none            &none            &kp KP_N7  &kp KP_N8  &kp KP_N9   &none        &kp BACKSPACE
-        &trans   &kp F5   &kp F6  &kp F7  &kp F8   &bt BT_CLR       &none            &kp KP_N4  &kp KP_N5  &kp KP_N6   &kp KP_MINUS &kp KP_DIVIDE
-        &trans   &kp F9  &kp F10  &kp F11 &kp F12  &none            &none            &kp KP_N1  &kp KP_N2  &kp KP_N3   &kp KP_PLUS  &kp KP_MULTIPLY
-                                  &trans  &trans   &trans           &kp KP_ENTER     &kp KP_N0  &kp KP_DOT
-            >;  
+            &trans   &kp F1   &kp F2  &kp F3  &kp F4   &none            &none            &kp KP_N7  &kp KP_N8  &kp KP_N9   &none        &kp BACKSPACE
+            &trans   &kp F5   &kp F6  &kp F7  &kp F8   &bt BT_CLR       &none            &kp KP_N4  &kp KP_N5  &kp KP_N6   &kp KP_MINUS &kp KP_DIVIDE
+            &trans   &kp F9  &kp F10  &kp F11 &kp F12  &none            &none            &kp KP_N1  &kp KP_N2  &kp KP_N3   &kp KP_PLUS  &kp KP_MULTIPLY
+                                      &trans  &trans   &trans           &kp KP_ENTER     &kp KP_N0  &kp KP_DOT
+                >;  
         };
 
         _NAV {
             label = "Saila'";
-            bindings = <
-        &trans  &kp F1   &kp F2   &kp F3   &kp F4   &none &kp HOME  &kp PG_UP  &kp INS  &trans    &kp DEL  &kp BACKSPACE
-        &trans  &kp F5   &kp F6   &kp F7   &kp F8   &none      &kp LEFT  &kp DOWN   &kp UP   &kp RIGHT &trans   &trans
-        &trans  &kp F9   &kp F10  &kp F11  &kp F12  &none      &kp END   &kp PG_DN  &trans   &trans    &kp K_APP   &trans
-                                  &trans   &trans  &trans      &trans     &trans   &trans
-            >;
+            // -----------------------------------------------------------------------------------------
+            // |     | F1  | F2  | F3  | F4  |     |        | home|PG_UP| ins |     | del |Bcksp|
+            // |     | F5  | F6  | F7  | F8  |BTCLR|        | Left| down| up  |right|     |     |
+            // |     | F9  | F10 | F11 | F12 |     |        | end |PG_DW|     |     | opt |     |
+            //                   |     |     | SPC |        |     |     |     |
+
+            bindings =  <
+            &trans  &kp F1   &kp F2   &kp F3   &kp F4   &none   &kp HOME  &kp PG_UP  &kp INS  &trans    &kp DEL  &kp BACKSPACE
+            &trans  &kp F5   &kp F6   &kp F7   &kp F8   &none   &kp LEFT  &kp DOWN   &kp UP   &kp RIGHT &trans   &trans
+            &trans  &kp F9   &kp F10  &kp F11  &kp F12  &none   &kp END   &kp PG_DN  &trans   &trans    &kp K_APP   &trans
+                                      &trans   &trans  &trans   &trans     &trans   &trans
+                        >;  
         };
 
         _ADJUST {
             label = "Adj";
             // -----------------------------------------------------------------------------------------
-            // | RESET|      |     |     |     |PTSCR|   |  -  |  7  |  8  |  9  |  +  |     |
-            // |      |  RGB+|RGBsi| Hue |     |     |   |  *  |  4  |  5  |  6  |  .  |     |
-            // |      |  RGB-|RGBsd| Blue|White|Green|   |  /  |  1  |  2  |  3  |  0  |  =  |
-            //                     |     |     | SPC |   |     |     |     |
+            // | RESET|      |     |     |     |     |   |  -  |  7  |  8  |  9  |  +  |     |
+            // |      |      |     |     |     |     |   |  *  |  4  |  5  |  6  |  .  |     |
+            // |      |      |     |     |     |     |   |  /  |  1  |  2  |  3  |  0  |  =  |
+            //                     |     |     |     |   |     |     |     |
 
-            bindings = <
-        &bootloader      &none            &none            &none            &none                   &kp PRINTSCREEN &kp KP_NUMLOCK  &kp CAPS    &kp SCROLLLOCK &none    &none   &none
-        &none            &none            &none            &none            &none                   &none           &none           &none       &none          &none    &none   &none
-        &none            &none            &none            &none            &none                   &trans          &none           &none       &none          &none    &none   &none
-                                          &trans           &trans           &trans                  &trans          &trans          &trans
-            >;
+            bindings =  <
+            &bootloader      &none            &none            &none            &none                   &kp PRINTSCREEN &kp KP_NUMLOCK  &kp CAPS    &kp SCROLLLOCK &none    &none   &none
+            &none            &none            &none            &none            &none                   &none           &none           &none       &none          &none    &none   &none
+            &none            &none            &none            &none            &none                   &trans          &none           &none       &none          &none    &none   &none
+                                              &trans           &trans           &trans                  &trans          &trans          &trans
+                        >;
+        };
+
+        _MOUSE {
+            label = "Jerry";
+            // -----------------------------------------------------------------------------------------
+            // |     |     |     |     |     |     |        |     |     |     |scrup|  up |scrdw|
+            // |     |     |     |     |     |     |        |     |     |     |left |down |right|
+            // |     |     |     |     |     |     |        |     |     |     |scrlf|     |scrrg|
+            //                   |     |     |     |        |lfclk|mdclk|rgclk|
+
+            bindings =  <
+            &trans  &trans  &trans  &trans  &trans  &trans      &trans              &trans                &kp MOUSE_SCROLL_UP     &kp MOUSE_MOVE_UP     &kp MOUSE_SCROLL_DOWN  &trans
+            &trans  &trans  &trans  &trans  &trans  &trans      &trans              &trans                &kp MOUSE_BTN_LEFT      &kp MOUSE_MOVE_DOWN   &kp MOUSE_MOVE_RIGHT   &trans
+            &trans  &trans  &trans  &trans  &trans  &trans      &trans              &trans                &kp MOUSE_SCROLL_LEFT   &trans                &kp MOUSE_SCROLL_RIGHT &trans
+                                    &trans  &trans  &trans      &kp MOUSE_BTN_LEFT  &kp MOUSE_BTN_MIDDLE  &kp MOUSE_BTN_RIGHT
+                        >;  
         };
     };
 };
