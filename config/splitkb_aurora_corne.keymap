@@ -165,10 +165,10 @@
             //                   |     |     |     |        |lfclk|mdclk|rgclk|
 
             bindings =  <
-            &trans  &trans  &trans  &trans  &trans  &trans      &trans              &trans                &kp MOUSE_SCROLL_UP     &kp MOUSE_MOVE_UP     &kp MOUSE_SCROLL_DOWN  &trans
-            &trans  &trans  &trans  &trans  &trans  &trans      &trans              &trans                &kp MOUSE_BTN_LEFT      &kp MOUSE_MOVE_DOWN   &kp MOUSE_MOVE_RIGHT   &trans
-            &trans  &trans  &trans  &trans  &trans  &trans      &trans              &trans                &kp MOUSE_SCROLL_LEFT   &trans                &kp MOUSE_SCROLL_RIGHT &trans
-                                    &trans  &trans  &trans      &kp MOUSE_BTN_LEFT  &kp MOUSE_BTN_MIDDLE  &kp MOUSE_BTN_RIGHT
+            &trans  &trans  &trans  &trans  &trans  &trans      &trans              &trans                &mkp MOUSE_SCROLL_UP     &mkp MOUSE_MOVE_UP     &mkp MOUSE_SCROLL_DOWN  &trans
+            &trans  &trans  &trans  &trans  &trans  &trans      &trans              &trans                &mkp MOUSE_BTN_LEFT      &mkp MOUSE_MOVE_DOWN   &mkp MOUSE_MOVE_RIGHT   &trans
+            &trans  &trans  &trans  &trans  &trans  &trans      &trans              &trans                &mkp MOUSE_SCROLL_LEFT   &trans                 &mkp MOUSE_SCROLL_RIGHT &trans
+                                    &trans  &trans  &trans      &mkp MOUSE_BTN_LEFT &mkp MOUSE_BTN_MIDDLE &mkp MOUSE_BTN_RIGHT
                         >;  
         };
     };
