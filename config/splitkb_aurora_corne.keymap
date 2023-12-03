@@ -63,16 +63,16 @@
         _BASE {
             label = "Home";
             // -----------------------------------------------------------------------------------------
-            // | GUI/TAB|  Q  |  W  |  E  |  R  |   T    |   |  Y  |  U   |    I    |  O  |  P  | BKSP   |
+            // | TAB|  Q  |  W  |  E  |  R  |   T    |   |  Y  |  U   |    I    |  O  |  P  | BKSP   |
             // |  CTRL  |  A  |  S  |  D  |  F  |   G    |   |  H  |  J   |    K    |  L  |  ;  | ù/RCTRL|
             // | SFT/CP |  Z  |  X  |  C  |  V  |   B    |   |  N  |  M   |    ,    |  .  |  /  |ESC/RSFT|
             //                | LALT| LWR/FUN | SFT-SPC|   | ENT |  RSE | DEL/ALT |
 
             bindings =  <
-            &mt LEFT_GUI TAB    &kp Q   &kp W       &kp E       &kp R   &kp T               &kp Y           &kp U       &kp I       &kp O   &kp P     &kp BSPC
-            &kp LCTRL           &kp A   &kp S       &kp D       &kp F   &kp G               &kp H           &kp J       &kp K       &kp L   &kp SEMI  &mt RCTRL SINGLE_QUOTE
-            &td1                &kp Z   &kp X       &kp C       &kp V   &kp B               &kp N           &kp M       &kp COMMA   &kp DOT &kp FSLH  &mt RSHFT ESC
-                                                    &kp LALT    &td0    &mt LSHFT SPC       &lt NAV ENTER   &mo RAISE   &mt RALT DEL
+            &kp TAB         &kp Q   &kp W       &kp E       &kp R   &kp T               &kp Y           &kp U       &kp I       &kp O   &kp P     &kp BSPC
+            &kp LCTRL       &kp A   &kp S       &kp D       &kp F   &kp G               &kp H           &kp J       &kp K       &kp L   &kp SEMI  &mt RCTRL SINGLE_QUOTE
+            &mt LGUI ESC    &kp Z   &kp X       &kp C       &kp V   &kp B               &kp N           &kp M       &kp COMMA   &kp DOT &kp FSLH  &mt RSHFT ESC
+                                                &kp LALT    &td0    &mt LSHFT SPC       &lt NAV ENTER   &mo RAISE   &mt RALT DEL
                         >;
         };
 
