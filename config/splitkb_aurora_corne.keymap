@@ -37,6 +37,20 @@
                 <&kp CAPS>;
         };
     };
+    
+    //macro testing
+    ZMK_MACRO(agrav,
+        bindings =
+        <&macro_press &kp LALT>,
+        <&macro_tap &kp KP_N0, &kp KP_N1, &kp KP_N9, &kp KP_N2>,
+        <&macro_release &kp LALT>;
+    )
+    ZMK_MACRO(aalt,
+        bindings =
+        <&macro_press &kp LALT>,
+        <&macro_tap &kp KP_N0, &kp KP_N0, &kp KP_N6, &kp KP_N5>,
+        <&macro_release &kp LALT>;
+    )
 
 /*
  * to do : alias layer 
@@ -150,7 +164,7 @@
 
             bindings =  <
             &bootloader      &none            &none            &none            &none                   &kp PRINTSCREEN &kp KP_NUMLOCK  &kp CAPS    &kp SCROLLLOCK &none    &none   &none
-            &none            &none            &none            &none            &none                   &none           &none           &none       &none          &none    &none   &none
+            &none            &none            &none            &none            &aalt                   &agrav           &none           &none       &none          &none    &none   &none
             &none            &none            &none            &none            &none                   &trans          &none           &none       &none          &none    &none   &none
                                               &trans           &trans           &trans                  &trans          &trans          &trans
                         >;
