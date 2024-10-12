@@ -2,13 +2,15 @@
 
 #include "node_free.h"
 
-// Alphas and OS overlays
+//my layers
 #define BASE 0
 #define LOWER 1
 #define RAISE 2
 #define FUN 3
 #define NAVI 4
 #define ADJ 6
+//aenhym layers
+// Alphas and OS overlays
 #define DEF 7
 #define WIN 8
 #define MAC 9
