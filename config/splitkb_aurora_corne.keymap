@@ -5,12 +5,117 @@
  */
 
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
-//#include <dt-bindings/zmk/mouse.h>
 
+
+#include "node_free.h"
+#include "layers.h"
+#include "keyboards/linux.h"
+#include "keyboards/windows.h"
+#include "keyboards/macos.h"
+
+#define ___ &trans
+
+
+/* Base layer layout
+    ╭─────┬─────┬─────┬─────┬─────┬─────╮   ╭─────┬─────┬─────┬─────┬─────┬─────╮
+    │TB|GU│  Q  │  W  │  E  │  R  │  T  │   │  Y  │  U  │  I  │  O  │  P  │ BSPC│
+    │C|ESC│  A  │  S  │  D  │  F  │  G  │   │  H  │  J  │  K  │  L  │  ;  │'|RC │
+    │ LSFT│  Z  │  X  │  C  │  V  │  B  │   │  N  │  M  │  ,  │  ;  │  .  │ RSFT│
+    ╰─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────╯
+                      │ LALT│LW/FU│SF-SP│   │ ENT │ RSE │DL/AT│
+                      ╰─────┴─────┴─────╯   ╰─────┴─────┴─────╯
+*/
+
+
+//tap dance definition for ctrl+esc
+TAPDANCE(td_ctrl_esc, <&kp LCTRL>, <&kp ESC>)
+
+// tapdance td0 refactor for FUN layer
+TAPDANCE(td0, &mo LOWER, &mo FUN)
+
+// tapdance td1 refactor for shift+caps
+TAPDANCE(td1, &kp LSHFT, &kp CAPS)
+
+LAYER(DEFAULT ,
+  &mt LGUI TAB,   &kp Q,  &kp W,  &kp E,  &kp R,  &kp T,    ___,      &kp Y,      &kp U,  &kp I,      &kp O,    &kp P,    &kp BSPC,
+  &kp LCTRL,      &kp A,  &kp S,  &kp D,  &kp F,  &kp G,    ___,      &kp H,      &kp J,  &kp K,      &kp L,    &kp SEMI, &mt RCTL SINGLE_QUOTE,
+  &td1,           &kp Z,  &kp X,  &kp C,  &kp V,  &kp B,    ___,      &kp N,      &kp M,  &kp COMMA,  &kp DOT,  &kp FSLH, &mt RSHFT ESC,
+                                  ___,    &td0,   &kp SPC,  &lt NAV,  &mo RAISE,  &mt RALT DEL
+)
+
+/*lower layer layout
+    ╭─────┬─────┬─────┬─────┬─────┬─────╮   ╭─────┬─────┬─────┬─────┬─────┬─────╮
+    │     │  1  │  2  │  3  │  4  │  5  │   │  6  │  7  │  8  │  9  │  0  │ BSPC│
+    │     │ BT5 │LEFT │DOWN │ UP  │RIGHT│   │     │  -  │  =  │  (  │  )  │  \  │
+    │     │ BT1 │ BT2 │ BT3 │ BT4 │USBTt│   │     │     │     │     │     │     │
+    ╰─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────╯
+                      │     │     │     │   │     │     │ ALT │
+                      ╰─────┴─────┴─────╯   ╰─────┴─────┴─────╯
+*/
+
+/* raise layer layout 
+    ╭─────┬─────┬─────┬─────┬─────┬─────╮   ╭─────┬─────┬─────┬─────┬─────┬─────╮
+    │     │  !  │  @  │  #  │  $  │  %  │   │  ^  │  &  │  *  │  (  │  )  │ DEL │
+    │     │     │     │     │     │     │   │  -  │  =  │  [  │  ]  │  \  │  `  │
+    │     │     │     │     │     │     │   │  _  │  +  │  {  │  }  │  |  │  ~  │
+    ╰─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────╯
+                      │     │     │     │   │     │     │     │
+                      ╰─────┴─────┴─────╯   ╰─────┴─────┴─────╯
+*/
+
+/* Fun layer layout 
+    ╭─────┬─────┬─────┬─────┬─────┬─────╮   ╭─────┬─────┬─────┬─────┬─────┬─────╮
+    │     │ F1  │ F2  │ F3  │ F4  │     │   │  -  │  7  │  8  │  9  │     │BCSPC│
+    │     │ F5  │ F6  │ F7  │ F8  │BTCLR│   │     │  4  │  5  │  6  │  -. │  /  │
+    │     │ F9  │ F10 │ F11 │ F12 │     │   │     │  1  │  2  │  3  │  +  │  *  │
+    ╰─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────╯
+                      │     │     │     │   │     │     │     │
+                      ╰─────┴─────┴─────╯   ╰─────┴─────┴─────╯
+*/
+
+/* NAVI layer layout 
+    ╭─────┬─────┬─────┬─────┬─────┬─────╮   ╭─────┬─────┬─────┬─────┬─────┬─────╮
+    │     │ F1  │ F2  │ F3  │ F4  │     │   │home │PG_UP│ ins │     │ del │Bcksp│
+    │     │ F5  │ F6  │ F7  │ F8  │BTCLR│   │Left │ down│ up  │right│     │     │
+    │     │ F9  │ F10 │ F11 │ F12 │     │   │end  │PG_DW│     │     │ opt │     │
+    ╰─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────╯
+                      │     │     │     │   │     │     │     │
+                      ╰─────┴─────┴─────╯   ╰─────┴─────┴─────╯
+*/
+
+/* Ajust Layer layout
+    ╭─────┬─────┬─────┬─────┬─────┬─────╮   ╭─────┬─────┬─────┬─────┬─────┬─────╮
+    │RESET│     │     │     │     │     │   │  -  │  7  │  8  │  9  │  +  │     │
+    │     │     │     │     │     │     │   │  *  │  4  │  5  │  6  │  .  │     │
+    │     │     │     │     │     │     │   │  /  │  1  │  2  │  3  │  0  │  =  │
+    ╰─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────╯
+                      │     │     │     │   │     │     │     │
+                      ╰─────┴─────┴─────╯   ╰─────┴─────┴─────╯
+*/
+
+
+//Macro redefine with snippet from node_free.h
+//Following is qu in french layout:
+MACRO(q_u, bindings = <&kp FR_Q &kp FR_U>;)
+//linux specific macro because caps lock is used as mod-morph
+MACRO(q_u_up_lnx,
+  tap-ms = <LNX_CAPS_DELAY>;
+  // Using Caps Lock because LSHFT/RSHFT are retained by Mod-Morph on Linux.
+  bindings = <&kp CAPS &kp FR_Q &kp CAPS &kp FR_U>;
+)
+MORPH_UP(qu_lnx, q_u, q_u_up_lnx)
+
+MORPH_UP(agrv, &kp FR_AGRV, &kp FR_AGRV_UP)
+MORPH_UP(eacu, &kp FR_EACU, &kp FR_EACU_UP)
+MORPH_UP(egrv, &kp FR_EGRV, &kp FR_EGRV_UP)
+
+MORPH_UP(caret_excl, &kp FR_CARET, &kp FR_EXCL)
+MORPH_UP(comma_semi, &kp FR_COMMA, &kp FR_SEMI)
+MORPH_UP(dot_colon,  &kp FR_DOT,   &kp FR_COLON)
+MORPH_UP(sqt_qmark,  &kp FR_SQT,   &kp FR_QMARK)
 
 / {
 /*
@@ -38,40 +143,6 @@
         };
     };
         
-    // Macro testing
-    ZMK_MACRO(agrav,
-      bindings = <
-        &macro_press &kp LALT
-        &macro_tap &kp KP_N0 &kp KP_N1 &kp KP_N9 &kp KP_N2
-        &macro_release &kp LALT
-      >;
-      )
-
-      ZMK_MACRO(aalt,
-        bindings = <
-          &macro_press &kp LALT
-          &macro_tap &kp KP_N0 &kp KP_N0 &kp KP_N6 &kp KP_N5
-          &macro_release &kp LALT
-        >;
-        )
-/*
-* to do : alias layer 
-*/
-#define BASE 0   
-//layer alpha
-#define LOWER 1
-//layer top row low kb sym 
-#define RAISE 2
-//layer top row high kb sym
-#define FUN 3
-//layer Function
-#define NAV 4
-//layer navigation
-#define ADJUST 5
-//layer adjust function
-//#define MOUSE 6
-//mouse function not yet supported
-
 
 keymap {
   compatible = "zmk,keymap";
