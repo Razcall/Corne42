@@ -49,7 +49,7 @@ MORPH(mt_rctl_single_quote, &kp RCTL, MOD_RCTL, &kp SINGLE_QUOTE)
 MORPH(mt_rshft_escape, <&kp RSHFT>, <MOD_RSHFT>, <&kp ESC>)
 
 // deinfe a mod-tap for RALT and DEL
-MorPH(mt_ralt_del, &kp RALT, MOD_RALT, &kp DEL)
+MORPH(mt_ralt_del, &kp RALT, MOD_RALT, &kp DEL)
 
 
 LAYER(BASE,
