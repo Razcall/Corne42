@@ -34,16 +34,29 @@
 TAPDANCE(td_ctrl_esc, <&kp LCTRL>, <&kp ESC>)
 
 // tapdance td0 refactor for FUN layer
-// TAPDANCE(td0, <&mo LOWER>, <&mo FUN>)
+TAPDANCE(td0, <&mo LOWER>, <&mo FUN>)
 
 // tapdance td1 refactor for shift+caps
 TAPDANCE(td1, <&kp LSHFT>, <&kp CAPS>)
 
+//define a modd-tap for LGUI and TAB
+MORPH(mt_lgui_tab, &kp LGUI, MOD_LGUI, &kp TAB)
+
+// Define a Mod-Tap behavior for RCTL (Right Control) and Single Quote
+MORPH(mt_rctl_single_quote, &kp RCTL, MOD_RCTL, &kp SINGLE_QUOTE)
+
+// Define a Mod-Tap behavior for RSHFT (Right Shift) and Escape
+MORPH(mt_rshft_escape, &kp RSHFT, MOD_RSHFT, &kp ESC)
+
+// deinfe a mod-tap for RALT and DEL
+MorPH(mt_ralt_del, &kp RALT, MOD_RALT, &kp DEL)
+
+
 LAYER(BASE,
-  &mt LGUI TAB   &kp Q          &kp W        &kp E          &kp R        &kp T        &kp Y        &kp U              &kp I       &kp O             &kp P             &kp BSPC
-  &td_ctrl_esc   &kp A          &kp S        &kp D          &kp F        &kp G        &kp H        &kp J              &kp K       &kp L             &kp SEMI          &mt RCTL SINGLE_QUOTE
-  &td1           &kp Z          &kp X        &kp C          &kp V        &kp B        &kp N        &kp M              &kp COMMA   &kp DOT           &kp FSLH          &mt RSHFT ESC
-                                             &kp ALT        &td0         &kp SPC      &lt NAV      &mo RAISE          &mt RALT DEL
+  &mt_lgui_tab   &kp Q          &kp W        &kp E          &kp R        &kp T        &kp Y        &kp U              &kp I       &kp O             &kp P             &kp BSPC
+  &td_ctrl_esc   &kp A          &kp S        &kp D          &kp F        &kp G        &kp H        &kp J              &kp K       &kp L             &kp SEMI          &mt mt_rctl_single_quote
+  &td1           &kp Z          &kp X        &kp C          &kp V        &kp B        &kp N        &kp M              &kp COMMA   &kp DOT           &kp FSLH          &mt mt_rshft_escape
+                                             &kp ALT        &td0         &kp SPC      &lt NAV      &mo RAISE          &mt_ralt_del
 )
 
 /*lower layer layout
