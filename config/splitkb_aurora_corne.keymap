@@ -46,7 +46,7 @@ MORPH(mt_lgui_tab, &kp LGUI, MOD_LGUI, &kp TAB)
 MORPH(mt_rctl_single_quote, &kp RCTL, MOD_RCTL, &kp SINGLE_QUOTE)
 
 // Define a Mod-Tap behavior for RSHFT (Right Shift) and Escape
-MORPH(mt_rshft_escape, <&kp RSHFT>, <MOD_RSHFT>, <&kp ESC>)
+MORPH(mt_rshft_escape, &kp RSHFT, MOD_RSHFT, &kp ESC)
 
 // deinfe a mod-tap for RALT and DEL
 MORPH(mt_ralt_del, &kp RALT, MOD_RALT, &kp DEL)
