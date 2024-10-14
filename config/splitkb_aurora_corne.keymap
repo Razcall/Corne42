@@ -34,7 +34,7 @@
 TAPDANCE(td_ctrl_esc, <&kp LCTRL>, <&kp ESC>)
 
 // tapdance td0 refactor for FUN layer
-TAPDANCE(td0, <&mo LOWER>, <&mo FUN>)
+// TAPDANCE(td0, <&mo LOWER>, <&mo FUN>)
 
 // tapdance td1 refactor for shift+caps
 TAPDANCE(td1, <&kp LSHFT>, <&kp CAPS>)
