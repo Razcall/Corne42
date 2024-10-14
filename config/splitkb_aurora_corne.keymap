@@ -40,10 +40,10 @@ TAPDANCE(td0, &mo LOWER, &mo FUN)
 TAPDANCE(td1, &kp LSHFT, &kp CAPS)
 
 LAYER(BASE,
-  &mt LGUI TAB,   &kp Q,              &kp W,        &kp E,          &kp R,        &kp T,          &kp Y,        &kp U,              &kp I,       &kp O,             &kp P,               &kp BSPC,
-  &td_ctrl_esc,      &kp A,              &kp S,        &kp D,          &kp F,        &kp G,          &kp H,        &kp J,              &kp K,       &kp L,             &kp SEMI,            &mt RCTL SINGLE_QUOTE,
-  &td1,           &kp Z,              &kp X,        &kp C,          &kp V,        &kp B,          &kp N,        &kp M,              &kp COMMA,   &kp DOT,           &kp FSLH,            &mt RSHFT ESC,
-                                                    &kp ALT,        &td0,         &kp SPC,        &lt NAV,      &mo RAISE,          &mt RALT DEL
+  &mt LGUI TAB   &kp Q          &kp W        &kp E          &kp R        &kp T        &kp Y        &kp U              &kp I       &kp O             &kp P             &kp BSPC
+  &td_ctrl_esc   &kp A          &kp S        &kp D          &kp F        &kp G        &kp H        &kp J              &kp K       &kp L             &kp SEMI          &mt RCTL SINGLE_QUOTE
+  &td1           &kp Z          &kp X        &kp C          &kp V        &kp B        &kp N        &kp M              &kp COMMA   &kp DOT           &kp FSLH          &mt RSHFT ESC
+                                             &kp ALT        &td0         &kp SPC      &lt NAV      &mo RAISE          &mt RALT DEL
 )
 
 /*lower layer layout
@@ -56,10 +56,10 @@ LAYER(BASE,
                       ╰─────┴─────┴─────╯   ╰─────┴─────┴─────╯
 */
 LAYER(LOWER,
-  &___ ,          &kp N1,             &kp N2,       &kp N3,         &kp N4,       &kp N5,         &kp N6,           &kp N7,         &kp N8,      &kp N9,            &kp N0,              &___,  
-  &___,           &bt BT_SEL 4,       &kp LEFT,     &kp DOWN,       &kp UP,       &kp RIGHT,      &___,             &kp MINUS,      &kp EQUAL,   &kp LEFT_BRACKET,  &kp RIGHT_BRACKET,   &kp BACKSLASH,
-  &___,           &bt BT_SEL 0,       &bt BT_SEL 1, &bt BT_SEL 2,   &bt BT_SEL 3, &out OUT_TOG,   &___,             &___,           &___,        &___,              &___,                &___,  
-                                                    &___,           &___,         &___,           &___,             &mo ADJUST,     &___
+  ___           &kp N1          &kp N2       &kp N3         &kp N4       &kp N5       &kp N6        &kp N7            &kp N8      &kp N9            &kp N0            ___  
+  ___           &bt BT_SEL 4    &kp LEFT     &kp DOWN       &kp UP       &kp RIGHT    ___           &kp MINUS         &kp EQUAL   &kp LEFT_BRACKET  &kp RIGHT_BRACKET &kp BACKSLASH
+  ___           &bt BT_SEL 0    &bt BT_SEL 1 &bt BT_SEL 2   &bt BT_SEL 3 &out OUT_TOG ___           ___               ___         ___               ___               ___  
+                                             ___            ___          ___          ___           &mo ADJUST        ___
 )
 
 /* raise layer layout 
@@ -72,10 +72,10 @@ LAYER(LOWER,
                       ╰─────┴─────┴─────╯   ╰─────┴─────┴─────╯
 */
 LAYER(RAISE,
-  &___,           &kp EXCL,           &kp AT,       &kp HASH,       &kp DLLR,       &kp PRCNT,    &kp CARET,        &kp AMPS,       &kp ASTRK,   &kp LPAR,          &kp RPAR,           &kp DEL,
-  &___,           &___,               &___,         &___,           &___,           &___,         &___,             &kp UNDERSCORE, &kp PLUS,    &kp LEFT_BRACE,    &kp RIGHT_BRACE,    &kp PIPE,
-  &___,           &kp NON_US_BSLH,    &___,         &kp C_VOL_DN,   &kp C_VOL_UP,   &kp C_MUTE,   &___,             &___,           &___,        &___,              &___,               &___,   
-                                                    &___,           &mo ADJUST,     &___,         &___,             &___,           &___
+  ___           &kp EXCL        &kp AT        &kp HASH      &kp DLLR      &kp PRCNT   &kp CARET       &kp AMPS        &kp ASTRK   &kp LPAR          &kp RPAR          &kp DEL
+  ___           ___             ___           ___           ___           ___         ___             &kp UNDERSCORE  &kp PLUS    &kp LEFT_BRACE    &kp RIGHT_BRACE   &kp PIPE
+  ___           &kp NON_US_BSLH ___           &kp C_VOL_DN  &kp C_VOL_UP  &kp C_MUTE  ___             ___             ___         ___               ___               ___   
+                                              ___           &mo ADJUST    ___         ___             ___             ___
 )
 
 
@@ -89,10 +89,10 @@ LAYER(RAISE,
                       ╰─────┴─────┴─────╯   ╰─────┴─────┴─────╯
 */
 LAYER(FUN,)
-  &___,           &kp F1,           &kp F2,         &kp F3,         &kp F4,         &___,         &___,             &kp KP_N7,      &kp KP_N8,    &kp KP_N9,        &___,               &kp BACKSPACE,
-  &___,           &kp F5,           &kp F6,         &kp F7,         &kp F8,         &bt BT_CLR,   &___,             &kp KP_N4,      &kp KP_N5,    &kp KP_N6,        &kp KP_MINUS,       &kp KP_DIVIDE,
-  &___,           &kp F9,           &kp F10,        &kp F11,        &kp F12,        &___,         &___,             &kp KP_N1,      &kp KP_N2,    &kp KP_N3,        &kp KP_PLUS,        &kp KP_MULTIPLY,
-                                                    &___,           &___,           &___,         &kp KP_ENTER,     &kp KP_N0,      &kp KP_DOT
+  ___           &kp F1          &kp F2        &kp F3        &kp F4        ___         ___             &kp KP_N7       &kp KP_N8   &kp KP_N9         ___               &kp BACKSPACE
+  ___           &kp F5          &kp F6        &kp F7        &kp F8        &bt BT_CLR  ___             &kp KP_N4       &kp KP_N5   &kp KP_N6         &kp KP_MINUS      &kp KP_DIVIDE
+  ___           &kp F9          &kp F10       &kp F11       &kp F12       ___         ___             &kp KP_N1       &kp KP_N2   &kp KP_N3         &kp KP_PLUS       &kp KP_MULTIPLY
+                                              ___           ___           ___         &kp KP_ENTER    &kp KP_N0       &kp KP_DOT
 )
 
 /* NAVI layer layout 
@@ -106,10 +106,10 @@ LAYER(FUN,)
 */
 
 LAYER(NAVI,)
-  &___,           &kp F1,           &kp F2,         &kp F3,         &kp F4,         &___,         &kp HOME,         &kp PG_UP,      &kp INS,      &___,             &kp DEL,            &kp BACKSPACE,
-  &___,           &kp F5,           &kp F6,         &kp F7,         &kp F8,         &___,         &kp LEFT,         &kp DOWN,       &kp UP,       &kp RIGHT,        &___,               &___,
-  &___,           &kp F9,           &kp F10,        &kp F11,        &kp F12,        &___,         &kp END,          &kp PG_DN,      &___,         &___,             &kp K_APP,          &___,
-                                                    &___,           &___,           &___,         &___,             &___,           &___
+  ___           &kp F1          &kp F2        &kp F3        &kp F4        ___         &kp HOME        &kp PG_UP       &kp INS     ___               &kp DEL           &kp BACKSPACE
+  ___           &kp F5          &kp F6        &kp F7        &kp F8        ___         &kp LEFT        &kp DOWN        &kp UP      &kp RIGHT         ___               ___
+  ___           &kp F9          &kp F10       &kp F11       &kp F12       ___         &kp END         &kp PG_DN       ___         ___               &kp K_APP         ___
+                                              ___           ___           ___         ___             ___             ___
 )
 
 /* Ajust Layer layout
@@ -123,10 +123,10 @@ LAYER(NAVI,)
 */
 LAYER(ADJUST,
   //suggest a matching layer
-  &bootloader,    &___,             &___,           &___,           &___,           &___,         &kp PRINTSCREEN,  &kp KP_NUMLOCK, &kp CAPS,     &kp SCROLLLOCK,    &___,               &___,
-  &___,           &___,             &___,           &___,           &___,           &___,         &___,             &___,           &___,         &___,              &___,               &to DEF,
-  &___,           &___,             &___,           &___,           &___,           &___,         &___,             &___,           &___,         &___,              &___,               &___,
-                                                    &___,           &___,           &___,         &___,             &___,           &___,         &___
+  &bootloader   ___             ___           ___           ___           ___         &kp PRINTSCREEN &kp KP_NUMLOCK  &kp CAPS    &kp SCROLLLOCK    ___               ___
+  ___           ___             ___           ___           ___           ___         ___             ___             ___         ___               ___               &to DEF
+  ___           ___             ___           ___           ___           ___         ___             ___             ___         ___               ___               ___
+                                              ___           ___           ___         ___             ___             ___         ___
 )
  
 /*
