@@ -57,8 +57,8 @@ MORPH(mt_ralt_del, &kp RALT, MOD_RALT, &kp DEL)
 
 LAYER(BASE,
   &mt_lgui_tab   &kp Q          &kp W        &kp E          &kp R        &kp T            &kp Y               &kp U             &kp I       &kp O             &kp P             &kp BSPC
-  &td_ctrl_esc   &kp A          &kp S        &kp D          &kp F        &kp G            &kp H               &kp J             &kp K       &kp L             &kp SEMI          &mt_rctl_single_quote
-  &td1           &kp Z          &kp X        &kp C          &kp V        &kp B            &kp N               &kp M             &kp COMMA   &kp DOT           &kp FSLH          &mt_rshft_escape
+  &kp RCTRL   &kp A          &kp S        &kp D          &kp F        &kp G            &kp H               &kp J             &kp K       &kp L             &kp SEMI          &mt_rctl_single_quote
+  &kp LSHFT           &kp Z          &kp X        &kp C          &kp V        &kp B            &kp N               &kp M             &kp COMMA   &kp DOT           &kp FSLH          &mt_rshft_escape
                                              &kp ALT        &td0         &mt_ls_sp        &lt NAVI ENTER      &mo RAISE         &mt_ralt_del
 )
 
