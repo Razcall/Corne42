@@ -43,7 +43,7 @@ TAPDANCE(td1, <&kp LSHFT>, <&kp CAPS>)
 MORPH(mt_lgui_tab, &kp LGUI, MOD_LGUI, &kp TAB)
 
 // Define a Mod-Tap behavior for RCTL (Right Control) and Single Quote
-MORPH(mt_rctl_single_quote, &kp RCTL, MOD_RCTL, &kp SINGLE_QUOTE)
+MORPH(mt_rctl_single_quote, &kp RCTRL, MOD_RCTL, &kp SINGLE_QUOTE)
 
 // Define a mod-tap for left shift and space
 MORPH(mt_ls_sp, &kp LSHFT, MOD_LSFT, &kp SPC)
