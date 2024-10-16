@@ -8,7 +8,7 @@
 #define RAISE 2
 #define FUN 3
 #define NAVI 4
-#define ADJ 6
+#define ADJUST 6
 //aenhym layers
 // Alphas and OS overlays
 #define DEF 7
