@@ -166,7 +166,7 @@ MACRO(q_u_up_lnx,
   // Using Caps Lock because LSHFT/RSHFT are retained by Mod-Morph on Linux.
   bindings = <&kp CAPS &kp FR_Q &kp CAPS &kp FR_U>;
 )
-MORPH_UP(qu_lnx, q_u, q_u_up_lnx)
+MORPH_UP(qu_lnx, &q_u, &q_u_up_lnx)
 
 MORPH_UP(agrv, &kp FR_AGRV, &kp FR_AGRV_UP)
 MORPH_UP(eacu, &kp FR_EACU, &kp FR_EACU_UP)
