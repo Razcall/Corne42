@@ -337,17 +337,17 @@ LAYER(ADMIN,
 
 /*
     ╭─────┬─────┬─────┬─────┬─────┬─────╮   ╭─────┬─────┬─────┬─────┬─────┬─────╮
-    │ TAB │  T  │  A  │ Z ↑ │  E  │  R  │   │  7  │  8  │  9  │     │     │ def │
-    │ ESC │SHFT │ Q ← │ S ↓ │ D → │  F  │   │  4  │  5  │  6  │     │     │     │
-    │ CTRL│  B  │  W  │  X  │  C  │  V  │   │  1  │  2  │  3  │     │     │     │
+    │ ESC │  T  │  A  │ Z ↑ │  E  │  R  │   │  7  │  8  │  9  │     │     │ def │
+    │ CTRL│SHFT │ Q ← │ S ↓ │ D → │  F  │   │  4  │  5  │  6  │     │     │     │
+    │ TAB │  B  │  W  │  X  │  C  │  V  │   │  1  │  2  │  3  │     │     │     │
     ╰─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────╯
                       │ ALT │  G  │ SPC │   │ RET │ GUI │  0  │
                       ╰─────┴─────┴─────╯   ╰─────┴─────┴─────╯
 */
 LAYER(GAMING,
-  &kp TAB    &kp FR_T   &kp FR_A  &kp FR_Z  &kp FR_E  &kp FR_R    &kp KP_N7  &kp KP_N8  &kp KP_N9  &none  &none  &to DEF
-  &kp ESC    &kp LSHFT  &kp FR_Q  &kp FR_S  &kp FR_D  &kp FR_F    &kp KP_N4  &kp KP_N5  &kp KP_N6  &none  &none  &none
-  &kp LCTRL  &kp FR_B   &kp FR_W  &kp FR_X  &kp FR_C  &kp FR_V    &kp KP_N1  &kp KP_N2  &kp KP_N3  &none  &none  &none
+  &kp ESC    &kp FR_T   &kp FR_A  &kp FR_Z  &kp FR_E  &kp FR_R    &kp KP_N7  &kp KP_N8  &kp KP_N9  &none  &none  &to DEF
+  &kp LCTRL  &kp LSHFT  &kp FR_Q  &kp FR_S  &kp FR_D  &kp FR_F    &kp KP_N4  &kp KP_N5  &kp KP_N6  &none  &none  &none
+  &kp TAB    &kp FR_B   &kp FR_W  &kp FR_X  &kp FR_C  &kp FR_V    &kp KP_N1  &kp KP_N2  &kp KP_N3  &none  &none  &none
                                   &kp LALT  &kp FR_G  &kp SPC     &kp RET    &kp LGUI   &kp KP_N0
 )
 
