@@ -352,7 +352,7 @@ LAYER(GAMING, "Gaming",
                       │ ALT │HOME │ SPC │   │ RET │ GUI │     │
                       ╰─────┴─────┴─────╯   ╰─────┴─────┴─────╯
 */
-LAYER(ARCANUM,
+LAYER(ARCANUM, "Arcanum",
   &kp TAB    &kp FR_T   &kp FR_A  &kp UP    &kp FR_O   &kp FR_R    &none    &none     &none  &none  &none  &to DEF
   &kp ESC    &kp LSHFT  &kp LEFT  &kp DOWN  &kp RIGHT  &kp FR_F    &none    &none     &none  &none  &none  &none
   &kp LCTRL  &kp FR_S   &kp FR_W  &kp FR_I  &kp FR_C   &kp FR_L    &none    &none     &none  &none  &none  &kp F7
