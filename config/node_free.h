@@ -55,3 +55,16 @@
 };
 
 // TODO: Add HomeRow snippet here
+#define HOMEROW(name, tap, hold) \
+/ { \
+  behaviors { \
+    name: name { \
+      compatible = "zmk,behavior-hold-tap"; \
+      #binding-cells = <2>; \
+      flavor = "balanced"; \
+      tapping-term-ms = <280>; \
+      quick-tap-ms = <175>; \
+      bindings = <hold>, <tap>; \
+    }; \
+  }; \
+};
