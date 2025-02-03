@@ -54,7 +54,7 @@
   }; \
 };
 
-// HomeRow mods configuration based on official ZMK example
+// HomeRow mods configuration optimized for reliability
 #define HOMEROW(name, hold, tap) \
 / { \
   behaviors { \
@@ -62,8 +62,11 @@
       compatible = "zmk,behavior-hold-tap"; \
       #binding-cells = <2>; \
       flavor = "balanced"; \
-      tapping-term-ms = <200>; \
-      quick-tap-ms = <0>; \
+      tapping-term-ms = <280>;     // Increased for better mod detection
+      quick-tap-ms = <175>;        // Added to allow quick repeat taps
+      global-quick-tap;            // Enable global quick tap
+      hold-trigger-key-positions = <0>;  // Trigger hold on any key press
+      hold-trigger-on-release;     // Only trigger hold on key release
       bindings = <hold>, <tap>; \
     }; \
   }; \
