@@ -23,18 +23,15 @@
 TODO: test HomeRow mods
 */
 //Homerow mods
-/ {
-  behaviors{
-    HOMEROW(hm_A_gui, &kp LGUI, &kp A)  // For A
-    HOMEROW(hm_S_alt, &kp LALT, &kp S)  // For S
-    HOMEROW(hm_D_sft, &kp LSHFT, &kp D) // For D
-    HOMEROW(hm_F_ctl, &kp LCTRL, &kp F) // For F
-    HOMEROW(hm_sem_gui, &kp RGUI, &kp SEMI)  // For ;
-    HOMEROW(hm_L_alt, &kp RALT, &kp L)  // For L
-    HOMEROW(hm_K_sft, &kp RSHFT, &kp K) // For K
-    HOMEROW(hm_J_ctl, &kp RCTRL, &kp J) // For J
-  };
-};
+HOMEROW(hm_A_gui, &kp LGUI, &kp A)  // For A
+HOMEROW(hm_S_alt, &kp LALT, &kp S)  // For S
+HOMEROW(hm_D_sft, &kp LSHFT, &kp D) // For D
+HOMEROW(hm_F_ctl, &kp LCTRL, &kp F) // For F
+
+HOMEROW(hm_sem_gui, &kp RGUI, &kp SEMI)  // For ;
+HOMEROW(hm_L_alt, &kp RALT, &kp L)  // For L
+HOMEROW(hm_K_sft, &kp RSHFT, &kp K) // For K
+HOMEROW(hm_J_ctl, &kp RCTRL, &kp J) // For J
 
 //tap dance definition for ctrl+esc
 TAPDANCE(td_ctrl_esc, <&kp LCTRL>, <&kp ESC>)
