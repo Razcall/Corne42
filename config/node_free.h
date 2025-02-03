@@ -56,7 +56,6 @@
 
 // HomeRow mods configuration optimized for reliability
 #define HOMEROW(name, hold, tap) \
-  / { \
     behaviors { \
       name: name { \
         compatible = "zmk,behavior-hold-tap"; \
@@ -70,4 +69,3 @@
         bindings = <hold>, <tap>; \
       }; \
     }; \
-  };
