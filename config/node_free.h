@@ -54,16 +54,16 @@
   }; \
 };
 
-// TODO: Add HomeRow snippet here
-#define HOMEROW(name, tap, hold) \
+// HomeRow mods configuration based on official ZMK example
+#define HOMEROW(name, hold, tap) \
 / { \
   behaviors { \
     name: name { \
       compatible = "zmk,behavior-hold-tap"; \
       #binding-cells = <2>; \
       flavor = "balanced"; \
-      tapping-term-ms = <280>; \
-      quick-tap-ms = <175>; \
+      tapping-term-ms = <200>; \
+      quick-tap-ms = <0>; \
       bindings = <hold>, <tap>; \
     }; \
   }; \
