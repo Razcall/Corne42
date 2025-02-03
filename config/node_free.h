@@ -59,7 +59,7 @@
     behaviors { \
       name: name { \
         compatible = "zmk,behavior-hold-tap"; \
-        #binding-cells = <2>; 
+        #binding-cells = <2>; \
         flavor = "balanced"; \
         tapping-term-ms = <280>;     /* Increased for better mod detection */ \
         quick-tap-ms = <175>;        /* Added to allow quick repeat taps */ \
