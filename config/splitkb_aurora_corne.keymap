@@ -22,6 +22,8 @@
                       ╰─────┴─────┴─────╯   ╰─────┴─────┴─────╯
 TODO: test HomeRow mods
 */
+// Define Homerow behavior
+HOMEROW_MODS_SET(hm, 175)
 
 
 //tap dance definition for ctrl+esc
@@ -50,9 +52,9 @@ TAPDANCE(td1, <&kp LSHFT>, <&kp CAPS>)
 
 LAYER(BASE, "Base",
   &mt LGUI TAB  &kp Q          &kp W        &kp E          &kp R        &kp T            &kp Y               &kp U             &kp I       &kp O             &kp P             &kp BSPC
-  &td_ctrl_esc  &kp A          &kp S        &kp D          &kp F        &kp G            &kp H               &kp J             &kp K       &kp L             &kp SEMI          &mt RCTRL SINGLE_QUOTE
+  &td_ctrl_esc  &hm_l LCTRL A  &hm_l LALT S &hm_l LGUI D   &hm_l LSHFT F &kp G           &kp H               &hm_r RSHFT J     &hm_r RGUI K &hm_r LALT L     &hm_r RCTRL SEMI  &mt RCTRL SINGLE_QUOTE
   &td1          &kp Z          &kp X        &kp C          &kp V        &kp B            &kp N               &kp M             &kp COMMA   &kp DOT           &kp FSLH          &mt RSHFT ESCAPE
-                                            &kp LALT       &td0         &mt LSHFT SPC    &lt NAVI ENTER      &mo RAISE         &mt RALT DEL
+                                            &kp LALT       &td0         &mt LSHFT SPC    &lt NAVI ENTER      &mo RAISE         &mt RALT BSPC
 )
 
 /*lower layer layout
@@ -66,10 +68,10 @@ LAYER(BASE, "Base",
 */
 
 LAYER(LOWER, "Lower",
-  ___           &kp N1          &kp N2       &kp N3         &kp N4        &kp N5          &kp N6              &kp N7            &kp N8      &kp N9            &kp N0            ___  
+  &kp ESC       &kp N1          &kp N2       &kp N3         &kp N4        &kp N5          &kp N6              &kp N7            &kp N8      &kp N9            &kp N0            ___  
   ___           &bt BT_SEL 4    &kp LEFT     &kp DOWN       &kp UP        &kp RIGHT       ___                 &kp MINUS         &kp EQUAL   &kp LEFT_BRACKET  &kp RIGHT_BRACKET &kp BACKSLASH
   ___           &bt BT_SEL 0    &bt BT_SEL 1 &bt BT_SEL 2   &bt BT_SEL 3  &out OUT_TOG    ___                 ___               ___         ___               ___               ___  
-                                             ___            ___           ___             ___                 &mo ADJUST        ___
+                                             ___            ___           ___             ___                 &mo ADJUST        &mt RALT DEL
 )
 
 /* raise layer layout 
@@ -133,7 +135,7 @@ LAYER(NAVI, "Nav",
 */
 LAYER(ADJUST, "Adj",
   //suggest a matching layer
-  &bootloader   ___             ___           ___           ___           ___             &kp PRINTSCREEN     &kp KP_NUMLOCK  &kp CAPS    &kp SCROLLLOCK    ___               ___
+  &bootloader   ___             ___           ___           ___           ___             &kp PRINTSCREEN     &kp KP_NUMLOCK  &kp CAPS    &kp SCROLLLOCK    ___               &to GAM
   ___           ___             ___           ___           ___           ___             ___                 ___             ___         ___               ___               &to DEF
   ___           ___             ___           ___           ___           ___             ___                 ___             ___         ___               ___               ___
                                               ___           ___           ___             ___                 ___             ___         ___
@@ -145,7 +147,7 @@ LAYER(ADJUST, "Adj",
     │C|ESC│  A  │  I  │  E  │  U  │ , ; │   │  P  │  T  │  S  │  R  │  N  │ ^ ! │
     │ GUI │  K  │  Y  │  È  │ . : │  W  │   │  G  │  C  │  M  │  H  │  V  │  Z  │
     ╰─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────╯
-                      │ ALT │ nav │ℕ]SPC│   │⇧]RET│ sym │BSPC │
+                      │ ALT │ nav │⇧]SPC│   │ℕ]RET│ sym │BSPC │
                       ╰─────┴─────┴─────╯   ╰─────┴─────┴─────╯
 */
 
@@ -171,10 +173,10 @@ MORPH_UP(dot_colon,  &kp FR_DOT,   &kp FR_COLON)
 MORPH_UP(sqt_qmark,  &kp FR_SQT,   &kp FR_QMARK)
 
 LAYER(DEF, "Linux",
-  &kp TAB       &agrv     &kp FR_J  &kp FR_O   &eacu       &kp FR_B       &kp FR_F       &kp FR_D  &kp FR_L  &sqt_qmark  &qu_lnx   &kp FR_X
-  &td_ctrl_esc  &kp FR_A  &kp FR_I  &kp FR_E   &kp FR_U    &comma_semi    &kp FR_P       &kp FR_T  &kp FR_S  &kp FR_R    &kp FR_N  &caret_excl
-  &kp LGUI      &kp FR_K  &kp FR_Y  &egrv      &dot_colon  &kp FR_W       &kp FR_G       &kp FR_C  &kp FR_M  &kp FR_H    &kp FR_V  &kp FR_Z
-                                    &kp LALT   &mo NAV     &lt NUM SPC    &mt LSHFT RET  &mo SYM   &kp BSPC
+  &kp TAB       &agrv     &kp FR_J  &kp FR_O   &eacu       &kp FR_B       &kp FR_F     &kp FR_D  &kp FR_L  &sqt_qmark  &qu_lnx   &kp FR_X
+  &td_ctrl_esc  &kp FR_A  &kp FR_I  &kp FR_E   &kp FR_U    &comma_semi    &kp FR_P     &kp FR_T  &kp FR_S  &kp FR_R    &kp FR_N  &caret_excl
+  &kp LGUI      &kp FR_K  &kp FR_Y  &egrv      &dot_colon  &kp FR_W       &kp FR_G     &kp FR_C  &kp FR_M  &kp FR_H    &kp FR_V  &kp FR_Z
+                                    &kp LALT   &mo NAV     &mt LSHFT SPC  &lt NUM RET  &mo SYM   &kp BSPC
 )
 
 MACRO(q_u_up, bindings = <&kp RS(FR_Q) &kp FR_U>;) // Windows & macOS
@@ -185,9 +187,9 @@ MORPH_UP(win_eacu, &kp FR_EACU, &win_eacu_up)
 MORPH_UP(win_egrv, &kp FR_EGRV, &win_egrv_up)
 
 LAYER(WINDOWS, "Windows",
-  ___  &win_agrv  ___  ___        &win_eacu       ___    ___  ___               ___  ___  &qu  ___
-  ___  ___        ___  ___        ___             ___    ___  ___               ___  ___  ___  ___
-  ___  ___        ___  &win_egrv  ___             ___    ___  ___               ___  ___  ___  ___
+  ___  &win_agrv  ___  ___        &win_eacu ___    ___  ___  ___  ___  &qu  ___
+  ___  ___        ___  ___        ___       ___    ___  ___  ___  ___  ___  ___
+  ___  ___        ___  &win_egrv  ___       ___    ___  ___  ___  ___  ___  ___
   ___  ___  ___  ___  ___  ___
 )
 
@@ -197,9 +199,9 @@ MORPH_UP(mac_egrv, &kp FR_EGRV, &mac_egrv_up)
 MORPH_UP(mac_caret_excl, &kp FR_CARET, &kp MAC_EXCL)
 
 LAYER(MACOS, "MacOS",
-  ___  &mac_agrv  ___  ___        &mac_eacu  ___    ___  ___               ___  ___  &qu  ___
-  ___  ___        ___  ___        ___        ___    ___  ___               ___  ___  ___  &mac_caret_excl
-  ___  ___        ___  &mac_egrv  ___        ___    ___  ___               ___  ___  ___  ___
+  ___  &mac_agrv  ___  ___        &mac_eacu  ___  ___  ___  ___  ___  &qu  ___
+  ___  ___        ___  ___        ___        ___  ___  ___  ___  ___  ___  &mac_caret_excl
+  ___  ___        ___  &mac_egrv  ___        ___  ___  ___  ___  ___  ___  ___
   ___  ___  ___  ___  ___  ___
 )
 
@@ -328,20 +330,36 @@ LAYER(ADMIN, "Admin",
 
 /*
     ╭─────┬─────┬─────┬─────┬─────┬─────╮   ╭─────┬─────┬─────┬─────┬─────┬─────╮
-    │ ESC │  T  │  A  │ Z ↑ │  E  │  R  │   │  7  │  8  │  9  │     │     │ def │
-    │ CTRL│SHFT │ Q ← │ S ↓ │ D → │  F  │   │  4  │  5  │  6  │     │     │     │
-    │ TAB │  B  │  W  │  X  │  C  │  V  │   │  1  │  2  │  3  │     │     │     │
+    │ TAB │  T  │  A  │ Z ↑ │  E  │  R  │   │  y  │  u  │  i  │  o  │  p  │ def │
+    │ CTRL│SHFT │ Q ← │ S ↓ │ D → │  F  │   │  h  │  j  │  k  │  l  │  ;  │'|CTL│
+    │ ESC │  B  │  G  │  X  │  C  │  V  │   │  n  │  m  │  ,  │  .  │  /  │RS|EC│
     ╰─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────╯
-                      │ ALT │  G  │ SPC │   │ RET │ GUI │  0  │
+                      │ ALT │G-low│ SPC │   │ RET │ GUI │  0  │
                       ╰─────┴─────┴─────╯   ╰─────┴─────┴─────╯
 */
 LAYER(GAMING, "Gaming",
-  &kp ESC    &kp FR_T   &kp FR_A  &kp FR_Z  &kp FR_E  &kp FR_R    &kp KP_N7  &kp KP_N8  &kp KP_N9  &none  &none  &to DEF
-  &kp LCTRL  &kp LSHFT  &kp FR_Q  &kp FR_S  &kp FR_D  &kp FR_F    &kp KP_N4  &kp KP_N5  &kp KP_N6  &none  &none  &none
-  &kp TAB    &kp FR_B   &kp FR_W  &kp FR_X  &kp FR_C  &kp FR_V    &kp KP_N1  &kp KP_N2  &kp KP_N3  &none  &none  &none
-                                  &kp LALT  &kp FR_G  &kp SPC     &kp RET    &kp LGUI   &kp KP_N0
+  &kp TAB    &kp FR_T   &kp FR_A  &kp FR_Z  &kp FR_E   &kp FR_R         &kp FR_Y    &kp FR_U   &kp FR_I    &kp FR_O   &kp FR_P   &to BASE
+  &kp LCTRL  &kp LSHFT  &kp FR_Q  &kp FR_S  &kp FR_D   &kp FR_F         &kp FR_H    &kp FR_J   &kp FR_K    &kp FR_L   &kp SEMI   &mt RCTRL SINGLE_QUOTE
+  &kp ESC    &kp FR_G   &kp FR_W  &kp FR_X  &kp FR_C   &kp FR_V         &kp FR_N    &kp FR_M   &kp COMMA   &kp DOT    &kp FSLH   &mt RSHFT ESCAPE
+                                  &kp LALT  &mo GLO    &kp SPC          &kp RET     &kp LGUI   &kp BSPC
 )
-// TODO: Add a layer for number to swich weapons in shooter games
+
+/*Gaming lower layer layout
+    ╭─────┬─────┬─────┬─────┬─────┬─────╮   ╭─────┬─────┬─────┬─────┬─────┬─────╮
+    │     │  1  │  2  │  3  │  4  │  5  │   │  6  │  7  │  8  │  9  │  0  │ BSPC│
+    │     │     │     │     │     │     │   │     │  -  │  =  │  (  │  )  │  \  │
+    │     │     │     │     │     │     │   │     │     │     │     │     │     │
+    ╰─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────╯
+                      │     │     │     │   │     │     │ ALT │
+                      ╰─────┴─────┴─────╯   ╰─────┴─────┴─────╯
+*/
+
+LAYER(GLOWER, "G-low",
+  ___   &kp N1  &kp N2  &kp N3   &kp N4   &kp N5  &kp N6  &kp N7     &kp N8     &kp N9            &kp N0             ___  
+  ___   ___     ___     ___      ___      ___     ___     &kp MINUS  &kp EQUAL  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp BACKSLASH
+  ___   &kp M   &kp H   &kp Y    ___      ___     ___     ___        ___        ___               ___                ___  
+                                          ___     ___     ___        ___        ___               ___
+)
 
 /*
     ╭─────┬─────┬─────┬─────┬─────┬─────╮   ╭─────┬─────┬─────┬─────┬─────┬─────╮
@@ -351,6 +369,7 @@ LAYER(GAMING, "Gaming",
     ╰─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────╯
                       │ ALT │HOME │ SPC │   │ RET │ GUI │     │
                       ╰─────┴─────┴─────╯   ╰─────┴─────┴─────╯
+
 */
 LAYER(ARCANUM, "Arcanum",
   &kp TAB    &kp FR_T   &kp FR_A  &kp UP    &kp FR_O   &kp FR_R    &none    &none     &none  &none  &none  &to DEF

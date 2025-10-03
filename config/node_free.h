@@ -54,4 +54,29 @@
   }; \
 };
 
-// TODO: Add HomeRow snippet here
+// Homerow mods macro
+// Usage: HOMEROW_MODS(name, hold_behavior, tap_behavior, tapping_term_ms)
+#define HOMEROW_MODS(name, hold_behavior, tap_behavior, tapping_term_ms) \
+/ { \
+  behaviors { \
+    name: name { \
+      compatible = "zmk,behavior-hold-tap"; \
+      #binding-cells = <2>; \
+      flavor = "tap-preferred"; \
+      tapping-term-ms = <tapping_term_ms>; \
+      quick-tap-ms = <175>; \
+      global-quick-tap; \
+      hold-trigger-on-release; \
+      hold-trigger-key-positions = <0>; \
+      bindings = <hold_behavior>, <tap_behavior>; \
+    }; \
+  }; \
+};
+
+// Convenience macro for common homerow mod sets
+// Usage: HOMEROW_MODS_SET(prefix, tapping_term_ms)
+#define HOMEROW_MODS_SET(prefix, tapping_term_ms) \
+  HOMEROW_MODS(prefix##_l, &kp, &kp, tapping_term_ms) \
+  HOMEROW_MODS(prefix##_r, &kp, &kp, tapping_term_ms)
+
+
