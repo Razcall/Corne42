@@ -4,6 +4,8 @@
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/rgb.h>
 
+#include "leds.dsti"
+
 #include "node_free.h"
 #include "layers.h"
 #include "keyboards/linux.h"
