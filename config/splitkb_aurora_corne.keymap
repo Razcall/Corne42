@@ -2,9 +2,9 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
-#include <dt-bindings/zmk/rgb.h>
+//#include <dt-bindings/zmk/rgb.h>
 
-#include "leds.dtsi"
+//#include "leds.dtsi"
 
 #include "node_free.h"
 #include "layers.h"
@@ -137,9 +137,9 @@ LAYER(NAVI, "Nav",
                         ╰─────┴─────┴─────╯   ╰─────┴─────┴─────╯
 */
 LAYER(ADJUST, "Adj",
-  &bootloader   &rgb_ug RGB_TOG  &rgb_ug RGB_EFF  &rgb_ug RGB_EFR  ___  ___    &kp PRINTSCREEN  &kp KP_NUMLOCK  &kp CAPS &kp SCROLLLOCK  ___  &to GAM
-  ___           &rgb_ug RGB_HUI  &rgb_ug RGB_HUD  &rgb_ug RGB_SAI  &rgb_ug RGB_SAD  ___    ___  ___  ___  ___  ___  &to DEF
-  ___           &rgb_ug RGB_BRI  &rgb_ug RGB_BRD  &rgb_ug RGB_SPI  &rgb_ug RGB_SPD  ___    ___  ___  ___  ___  ___  ___
+  &bootloader   ___  ___  ___  ___  ___    &kp PRINTSCREEN  &kp KP_NUMLOCK  &kp CAPS &kp SCROLLLOCK  ___  &to GAM
+  ___           ___  ___  ___  ___  ___    ___  ___  ___  ___  ___  &to DEF
+  ___           ___  ___  ___  ___  ___    ___  ___  ___  ___  ___  ___
   ___  ___  ___    ___  ___  ___
 )
  
