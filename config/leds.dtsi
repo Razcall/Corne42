@@ -1,5 +1,5 @@
-// LED configuration - 6 underglow LEDs only (per-key disabled for power budget)
+// LED configuration - 27 LEDs per half (21 per-key + 6 underglow)
 
 &led_strip {
-  chain-length = <6>;
+  chain-length = <27>;
 };
