@@ -12,6 +12,11 @@
 #include "keyboards/windows.h"
 #include "keyboards/macos.h"
 
+// Configure nice!view CS pin to P1.01 (pin 101) instead of default P0.06
+&nice_view_spi {
+    cs-gpios = <&gpio1 1 GPIO_ACTIVE_HIGH>;
+};
+
 #define ___ &trans
 
 
